@@ -86,11 +86,12 @@ data "aws_iam_policy_document" "alb_log" {
   statement {
     effect    = "Allow"
     actions   = ["s3:PutObject"]
-    resources = ["arn:aws:s3:::${aws_s3_bucket.alb_log.id}/*}"]
+    resources = ["arn:aws:s3:::${aws_s3_bucket.alb_log.id}/*"]
 
     principals {
-      type        = "AWS"
-      identifiers = ["651404961923"]
+      type = "AWS"
+      # https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/enable-access-logging.html
+      identifiers = ["582318560864"]
     }
   }
 }
