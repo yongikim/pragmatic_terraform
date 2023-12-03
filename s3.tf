@@ -86,7 +86,7 @@ data "aws_iam_policy_document" "alb_log" {
   statement {
     effect    = "Allow"
     actions   = ["s3:PutObject"]
-    resources = ["arn:aws:s3:::${aws_s3_bucket.alb_log.id}/*"]
+    resources = ["${aws_s3_bucket.alb_log.arn}/*"]
 
     principals {
       type = "AWS"
